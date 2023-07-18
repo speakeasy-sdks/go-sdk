@@ -1,4 +1,9 @@
 configVersion: 1.0.0
+management:
+  docChecksum: af06384e525f01026fc7dc59efb1b4ca
+  docVersion: "2022-09-01"
+  speakeasyVersion: 1.61.0
+  generationVersion: 2.70.0
 generation:
   comments:
     disableComments: false
@@ -8,6 +13,6 @@ generation:
   singleTagPerOp: false
   tagNamespacingDisabled: false
 go:
-  version: 0.0.1
+  version: 1.0.0
   maxMethodParams: 0
   packageName: github.com/speakeasy-sdks/go-sdk

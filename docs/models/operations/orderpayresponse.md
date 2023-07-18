@@ -1,0 +1,15 @@
+# OrderPayResponse
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `APIError`                                                          | [*shared.APIError](../../models/shared/apierror.md)                 | :heavy_minus_sign:                                                  | API related Errors                                                  |
+| `ContentType`                                                       | *string*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |
+| `ErrorResponse`                                                     | [*shared.ErrorResponse](../../models/shared/errorresponse.md)       | :heavy_minus_sign:                                                  | Any bad or invalid request will lead to following error object      |
+| `Headers`                                                           | map[string][]*string*                                               | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `OrderPayResponse`                                                  | [*shared.OrderPayResponse](../../models/shared/orderpayresponse.md) | :heavy_minus_sign:                                                  | OK                                                                  |
+| `RateLimitError`                                                    | [*shared.RateLimitError](../../models/shared/ratelimiterror.md)     | :heavy_minus_sign:                                                  | Either ports issue or too many requests                             |
+| `StatusCode`                                                        | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `RawResponse`                                                       | [*http.Response](https://pkg.go.dev/net/http#Response)              | :heavy_minus_sign:                                                  | N/A                                                                 |
