@@ -118,3 +118,4 @@ docs/models/shared/paylaterpaymentmethod.md
 docs/models/shared/paylaterprovider.md
 docs/models/shared/paylater.md
 docs/models/callbacks/createorderpaymentwebhookresponse.md
+.gitattributes
