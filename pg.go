@@ -111,8 +111,8 @@ func New(opts ...SDKOption) *Pg {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "2022-09-01",
-			SDKVersion:        "1.1.0",
-			GenVersion:        "2.89.1",
+			SDKVersion:        "1.2.0",
+			GenVersion:        "2.96.9",
 		},
 	}
 	for _, opt := range opts {

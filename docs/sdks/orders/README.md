@@ -31,55 +31,42 @@ func main() {
     res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
         CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
             CustomerDetails: shared.CustomerDetails{
-                CustomerBankAccountNumber: pg.String("sapiente"),
-                CustomerBankCode: pg.String("quo"),
-                CustomerBankIfsc: pg.String("odit"),
-                CustomerEmail: pg.String("at"),
-                CustomerID: "at",
-                CustomerPhone: "maiores",
+                CustomerBankAccountNumber: pg.String("placeat"),
+                CustomerBankCode: pg.String("voluptatum"),
+                CustomerBankIfsc: pg.String("iusto"),
+                CustomerEmail: pg.String("excepturi"),
+                CustomerID: "nisi",
+                CustomerPhone: "recusandae",
             },
             OrderAmount: 10.15,
             OrderCurrency: "INR",
             OrderExpiryTime: pg.String("2021-07-29T00:00:00Z"),
-            OrderID: pg.String("molestiae"),
+            OrderID: pg.String("temporibus"),
             OrderMeta: &shared.OrderMeta{
-                NotifyURL: pg.String("quod"),
-                PaymentMethods: pg.String("quod"),
-                ReturnURL: pg.String("esse"),
+                NotifyURL: pg.String("ab"),
+                PaymentMethods: pg.String("quis"),
+                ReturnURL: pg.String("veritatis"),
             },
             OrderNote: pg.String("Test order"),
             OrderSplits: []shared.VendorSplit{
                 shared.VendorSplit{
-                    Amount: pg.Float64(7805.29),
-                    Percentage: pg.Float64(6788.8),
-                    VendorID: pg.String("dicta"),
-                },
-                shared.VendorSplit{
-                    Amount: pg.Float64(7206.33),
-                    Percentage: pg.Float64(6399.21),
-                    VendorID: pg.String("occaecati"),
-                },
-                shared.VendorSplit{
-                    Amount: pg.Float64(1433.53),
-                    Percentage: pg.Float64(5373.73),
-                    VendorID: pg.String("hic"),
+                    Amount: pg.Float64(6481.72),
+                    Percentage: pg.Float64(202.18),
+                    VendorID: pg.String("ipsam"),
                 },
             },
             OrderTags: map[string]string{
-                "totam": "beatae",
-                "commodi": "molestiae",
-                "modi": "qui",
-                "impedit": "cum",
+                "repellendus": "sapiente",
             },
             Terminal: &shared.TerminalDetails{
-                TerminalID: "esse",
-                TerminalPhoneNo: "ipsum",
-                TerminalType: "excepturi",
+                TerminalID: "quo",
+                TerminalPhoneNo: "odit",
+                TerminalType: "at",
             },
         },
-        XAPIVersion: pg.String("aspernatur"),
-        XClientID: "perferendis",
-        XClientSecret: "ad",
+        XAPIVersion: pg.String("at"),
+        XClientID: "maiores",
+        XClientSecret: "molestiae",
     })
     if err != nil {
         log.Fatal(err)
@@ -132,7 +119,7 @@ func main() {
             PaymentSessionID: "session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn",
             SaveInstrument: pg.Bool(false),
         },
-        XAPIVersion: "natus",
+        XAPIVersion: "quod",
     })
     if err != nil {
         log.Fatal(err)

@@ -51,36 +51,23 @@ func main() {
             OrderNote: pg.String("Test order"),
             OrderSplits: []shared.VendorSplit{
                 shared.VendorSplit{
-                    Amount: pg.Float64(3843.82),
-                    Percentage: pg.Float64(4375.87),
-                    VendorID: pg.String("magnam"),
-                },
-                shared.VendorSplit{
-                    Amount: pg.Float64(8917.73),
-                    Percentage: pg.Float64(567.13),
-                    VendorID: pg.String("delectus"),
-                },
-                shared.VendorSplit{
-                    Amount: pg.Float64(2726.56),
-                    Percentage: pg.Float64(3834.41),
-                    VendorID: pg.String("molestiae"),
+                    Amount: pg.Float64(6458.94),
+                    Percentage: pg.Float64(3843.82),
+                    VendorID: pg.String("iure"),
                 },
             },
             OrderTags: map[string]string{
-                "placeat": "voluptatum",
-                "iusto": "excepturi",
-                "nisi": "recusandae",
-                "temporibus": "ab",
+                "magnam": "debitis",
             },
             Terminal: &shared.TerminalDetails{
-                TerminalID: "quis",
-                TerminalPhoneNo: "veritatis",
-                TerminalType: "deserunt",
+                TerminalID: "ipsa",
+                TerminalPhoneNo: "delectus",
+                TerminalType: "tempora",
             },
         },
-        XAPIVersion: pg.String("perferendis"),
-        XClientID: "ipsam",
-        XClientSecret: "repellendus",
+        XAPIVersion: pg.String("suscipit"),
+        XClientID: "molestiae",
+        XClientSecret: "minus",
     })
     if err != nil {
         log.Fatal(err)
