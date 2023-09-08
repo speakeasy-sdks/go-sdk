@@ -44,7 +44,6 @@ func (e *ErrorResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ErrorResponse - Any bad or invalid request will lead to following error object
 type ErrorResponse struct {
 	Code    *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
