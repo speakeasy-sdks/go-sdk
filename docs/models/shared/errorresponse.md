@@ -1,7 +1,5 @@
 # ErrorResponse
 
-Any bad or invalid request will lead to following error object
-
 
 ## Fields
 
