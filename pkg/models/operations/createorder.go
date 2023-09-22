@@ -4,14 +4,26 @@ package operations
 
 import (
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/go-sdk/pkg/utils"
 	"net/http"
 )
 
 type CreateOrderRequest struct {
 	CreateOrderBackendRequest *shared.CreateOrderBackendRequest `request:"mediaType=application/json"`
-	XAPIVersion               *string                           `header:"style=simple,explode=false,name=x-api-version"`
+	XAPIVersion               *string                           `default:"2022-09-01" header:"style=simple,explode=false,name=x-api-version"`
 	XClientID                 string                            `header:"style=simple,explode=false,name=x-client-id"`
 	XClientSecret             string                            `header:"style=simple,explode=false,name=x-client-secret"`
+}
+
+func (c CreateOrderRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CreateOrderRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *CreateOrderRequest) GetCreateOrderBackendRequest() *shared.CreateOrderBackendRequest {

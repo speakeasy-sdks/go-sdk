@@ -7,7 +7,7 @@ package main
 import(
 	"context"
 	"log"
-	"github.com/speakeasy-sdks/go-sdk"
+	gosdk "github.com/speakeasy-sdks/go-sdk"
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
@@ -15,34 +15,34 @@ import(
 )
 
 func main() {
-    s := pg.New()
+    s := gosdk.New()
 
     ctx := context.Background()
     res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
         CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
             CustomerDetails: shared.CustomerDetails{
-                CustomerBankAccountNumber: pg.String("corrupti"),
-                CustomerBankCode: pg.String("provident"),
-                CustomerBankIfsc: pg.String("distinctio"),
-                CustomerEmail: pg.String("quibusdam"),
+                CustomerBankAccountNumber: gosdk.String("corrupti"),
+                CustomerBankCode: gosdk.String("provident"),
+                CustomerBankIfsc: gosdk.String("distinctio"),
+                CustomerEmail: gosdk.String("quibusdam"),
                 CustomerID: "unde",
                 CustomerPhone: "nulla",
             },
             OrderAmount: 10.15,
             OrderCurrency: "INR",
-            OrderExpiryTime: pg.String("2021-07-29T00:00:00Z"),
-            OrderID: pg.String("corrupti"),
+            OrderExpiryTime: gosdk.String("2021-07-29T00:00:00Z"),
+            OrderID: gosdk.String("corrupti"),
             OrderMeta: &shared.OrderMeta{
-                NotifyURL: pg.String("illum"),
-                PaymentMethods: pg.String("vel"),
-                ReturnURL: pg.String("error"),
+                NotifyURL: gosdk.String("illum"),
+                PaymentMethods: gosdk.String("vel"),
+                ReturnURL: gosdk.String("error"),
             },
-            OrderNote: pg.String("Test order"),
+            OrderNote: gosdk.String("Test order"),
             OrderSplits: []shared.VendorSplit{
                 shared.VendorSplit{
-                    Amount: pg.Float64(6458.94),
-                    Percentage: pg.Float64(3843.82),
-                    VendorID: pg.String("iure"),
+                    Amount: gosdk.Float64(6458.94),
+                    Percentage: gosdk.Float64(3843.82),
+                    VendorID: gosdk.String("iure"),
                 },
             },
             OrderTags: map[string]string{
@@ -54,7 +54,7 @@ func main() {
                 TerminalType: "tempora",
             },
         },
-        XAPIVersion: pg.String("suscipit"),
+        XAPIVersion: gosdk.String("suscipit"),
         XClientID: "molestiae",
         XClientSecret: "minus",
     })
