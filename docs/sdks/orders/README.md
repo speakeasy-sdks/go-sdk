@@ -1,4 +1,5 @@
 # Orders
+(*Orders*)
 
 ### Available Operations
 
@@ -31,42 +32,42 @@ func main() {
     res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
         CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
             CustomerDetails: shared.CustomerDetails{
-                CustomerBankAccountNumber: gosdk.String("quod"),
-                CustomerBankCode: gosdk.String("quod"),
-                CustomerBankIfsc: gosdk.String("esse"),
-                CustomerEmail: gosdk.String("totam"),
-                CustomerID: "porro",
-                CustomerPhone: "dolorum",
+                CustomerBankAccountNumber: gosdk.String("North double"),
+                CustomerBankCode: gosdk.String("spherical woman burdensome"),
+                CustomerBankIfsc: gosdk.String("interfaces Smart"),
+                CustomerEmail: gosdk.String("Doyle brown toast"),
+                CustomerID: "Bedfordshire",
+                CustomerPhone: "Mohr North",
             },
             OrderAmount: 10.15,
             OrderCurrency: "INR",
             OrderExpiryTime: gosdk.String("2021-07-29T00:00:00Z"),
-            OrderID: gosdk.String("dicta"),
+            OrderID: gosdk.String("deploy South"),
             OrderMeta: &shared.OrderMeta{
-                NotifyURL: gosdk.String("nam"),
-                PaymentMethods: gosdk.String("officia"),
-                ReturnURL: gosdk.String("occaecati"),
+                NotifyURL: gosdk.String("Road male Berkshire"),
+                PaymentMethods: gosdk.String("parsing female middleware"),
+                ReturnURL: gosdk.String("Bedfordshire navigating"),
             },
             OrderNote: gosdk.String("Test order"),
             OrderSplits: []shared.VendorSplit{
                 shared.VendorSplit{
-                    Amount: gosdk.Float64(1433.53),
-                    Percentage: gosdk.Float64(5373.73),
-                    VendorID: gosdk.String("hic"),
+                    Amount: gosdk.Float64(5942.72),
+                    Percentage: gosdk.Float64(3302.96),
+                    VendorID: gosdk.String("dearly remount"),
                 },
             },
             OrderTags: map[string]string{
-                "optio": "totam",
+                "expedita": "South",
             },
             Terminal: &shared.TerminalDetails{
-                TerminalID: "beatae",
-                TerminalPhoneNo: "commodi",
-                TerminalType: "molestiae",
+                TerminalID: "Southwest",
+                TerminalPhoneNo: "violet Chips Porsche",
+                TerminalType: "mobile",
             },
         },
-        XAPIVersion: gosdk.String("modi"),
-        XClientID: "qui",
-        XClientSecret: "impedit",
+        XAPIVersion: gosdk.String("ROI bypassing vero"),
+        XClientID: "Solutions Ferrari Accountability",
+        XClientSecret: "Folk ampere",
     })
     if err != nil {
         log.Fatal(err)
@@ -119,7 +120,7 @@ func main() {
             PaymentSessionID: "session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn",
             SaveInstrument: gosdk.Bool(false),
         },
-        XAPIVersion: "cum",
+        XAPIVersion: "Cheese compressing Islands",
     })
     if err != nil {
         log.Fatal(err)
