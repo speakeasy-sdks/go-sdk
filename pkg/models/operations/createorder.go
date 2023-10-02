@@ -59,7 +59,8 @@ type CreateOrderResponse struct {
 	APIError *shared.APIError
 	// Authentication Error
 	AuthenticationError *shared.AuthenticationError
-	ContentType         string
+	// HTTP response content type for this operation
+	ContentType string
 	// Any bad or invalid request will lead to following error object
 	ErrorResponse *shared.ErrorResponse
 	Headers       map[string][]string
@@ -67,8 +68,10 @@ type CreateOrderResponse struct {
 	OrdersEntity *shared.OrdersEntity
 	// Rate Limit Error
 	RateLimitError *shared.RateLimitError
-	StatusCode     int
-	RawResponse    *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *CreateOrderResponse) GetAPIError() *shared.APIError {

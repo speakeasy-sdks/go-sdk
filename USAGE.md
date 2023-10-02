@@ -21,42 +21,42 @@ func main() {
     res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
         CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
             CustomerDetails: shared.CustomerDetails{
-                CustomerBankAccountNumber: gosdk.String("corrupti"),
-                CustomerBankCode: gosdk.String("provident"),
-                CustomerBankIfsc: gosdk.String("distinctio"),
-                CustomerEmail: gosdk.String("quibusdam"),
-                CustomerID: "unde",
-                CustomerPhone: "nulla",
+                CustomerBankAccountNumber: gosdk.String("North double"),
+                CustomerBankCode: gosdk.String("spherical woman burdensome"),
+                CustomerBankIfsc: gosdk.String("interfaces Smart"),
+                CustomerEmail: gosdk.String("Doyle brown toast"),
+                CustomerID: "Bedfordshire",
+                CustomerPhone: "Mohr North",
             },
             OrderAmount: 10.15,
             OrderCurrency: "INR",
             OrderExpiryTime: gosdk.String("2021-07-29T00:00:00Z"),
-            OrderID: gosdk.String("corrupti"),
+            OrderID: gosdk.String("deploy South"),
             OrderMeta: &shared.OrderMeta{
-                NotifyURL: gosdk.String("illum"),
-                PaymentMethods: gosdk.String("vel"),
-                ReturnURL: gosdk.String("error"),
+                NotifyURL: gosdk.String("Road male Berkshire"),
+                PaymentMethods: gosdk.String("parsing female middleware"),
+                ReturnURL: gosdk.String("Bedfordshire navigating"),
             },
             OrderNote: gosdk.String("Test order"),
             OrderSplits: []shared.VendorSplit{
                 shared.VendorSplit{
-                    Amount: gosdk.Float64(6458.94),
-                    Percentage: gosdk.Float64(3843.82),
-                    VendorID: gosdk.String("iure"),
+                    Amount: gosdk.Float64(5942.72),
+                    Percentage: gosdk.Float64(3302.96),
+                    VendorID: gosdk.String("dearly remount"),
                 },
             },
             OrderTags: map[string]string{
-                "magnam": "debitis",
+                "expedita": "South",
             },
             Terminal: &shared.TerminalDetails{
-                TerminalID: "ipsa",
-                TerminalPhoneNo: "delectus",
-                TerminalType: "tempora",
+                TerminalID: "Southwest",
+                TerminalPhoneNo: "violet Chips Porsche",
+                TerminalType: "mobile",
             },
         },
-        XAPIVersion: gosdk.String("suscipit"),
-        XClientID: "molestiae",
-        XClientSecret: "minus",
+        XAPIVersion: gosdk.String("ROI bypassing vero"),
+        XClientID: "Solutions Ferrari Accountability",
+        XClientSecret: "Folk ampere",
     })
     if err != nil {
         log.Fatal(err)
