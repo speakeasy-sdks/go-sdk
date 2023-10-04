@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: af06384e525f01026fc7dc59efb1b4ca
   docVersion: "2022-09-01"
-  speakeasyVersion: 1.89.0
-  generationVersion: 2.125.1
+  speakeasyVersion: 1.93.2
+  generationVersion: 2.144.7
 generation:
   comments:
     disableComments: false
@@ -15,10 +15,10 @@ generation:
 features:
   go:
     constsAndDefaults: 0.1.0
-    core: 2.88.4
+    core: 2.91.1
     globalServerURLs: 2.82.0
-    unions: 2.83.0
+    unions: 2.83.1
 go:
-  version: 1.4.0
+  version: 1.5.0
   maxMethodParams: 0
   packageName: github.com/speakeasy-sdks/go-sdk
