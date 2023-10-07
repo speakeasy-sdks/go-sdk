@@ -3,26 +3,40 @@
 package shared
 
 import (
-	"github.com/speakeasy-sdks/go-sdk/pkg/types"
-	"github.com/speakeasy-sdks/go-sdk/pkg/utils"
+	"encoding/json"
+	"fmt"
 )
+
+// AuthenticationErrorType - authentication_error
+type AuthenticationErrorType string
+
+const (
+	AuthenticationErrorTypeAuthenticationError AuthenticationErrorType = "authentication_error"
+)
+
+func (e AuthenticationErrorType) ToPointer() *AuthenticationErrorType {
+	return &e
+}
+
+func (e *AuthenticationErrorType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "authentication_error":
+		*e = AuthenticationErrorType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for AuthenticationErrorType: %v", v)
+	}
+}
 
 type AuthenticationError struct {
 	Code    *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
 	// authentication_error
-	type_ *string `const:"authentication_error" json:"type,omitempty"`
-}
-
-func (a AuthenticationError) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(a, "", false)
-}
-
-func (a *AuthenticationError) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
-		return err
-	}
-	return nil
+	Type *AuthenticationErrorType `json:"type,omitempty"`
 }
 
 func (o *AuthenticationError) GetCode() *string {
@@ -39,6 +53,9 @@ func (o *AuthenticationError) GetMessage() *string {
 	return o.Message
 }
 
-func (o *AuthenticationError) GetType() *string {
-	return types.String("authentication_error")
+func (o *AuthenticationError) GetType() *AuthenticationErrorType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

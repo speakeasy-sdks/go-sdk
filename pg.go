@@ -50,6 +50,7 @@ type sdkConfiguration struct {
 	OpenAPIDocVersion string
 	SDKVersion        string
 	GenVersion        string
+	UserAgent         string
 	RetryConfig       *utils.RetryConfig
 }
 
@@ -117,8 +118,9 @@ func New(opts ...SDKOption) *Pg {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "2022-09-01",
-			SDKVersion:        "1.4.0",
-			GenVersion:        "2.125.1",
+			SDKVersion:        "1.5.0",
+			GenVersion:        "2.150.0",
+			UserAgent:         "speakeasy-sdk/go 1.5.0 2.150.0 2022-09-01 github.com/speakeasy-sdks/go-sdk",
 		},
 	}
 	for _, opt := range opts {

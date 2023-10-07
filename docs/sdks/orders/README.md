@@ -1,4 +1,5 @@
 # Orders
+(*Orders*)
 
 ### Available Operations
 
@@ -21,7 +22,6 @@ import(
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
-	"net/http"
 )
 
 func main() {
@@ -31,42 +31,28 @@ func main() {
     res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
         CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
             CustomerDetails: shared.CustomerDetails{
-                CustomerBankAccountNumber: gosdk.String("quod"),
-                CustomerBankCode: gosdk.String("quod"),
-                CustomerBankIfsc: gosdk.String("esse"),
-                CustomerEmail: gosdk.String("totam"),
-                CustomerID: "porro",
-                CustomerPhone: "dolorum",
+                CustomerID: "North double",
+                CustomerPhone: "spherical woman burdensome",
             },
             OrderAmount: 10.15,
             OrderCurrency: "INR",
             OrderExpiryTime: gosdk.String("2021-07-29T00:00:00Z"),
-            OrderID: gosdk.String("dicta"),
-            OrderMeta: &shared.OrderMeta{
-                NotifyURL: gosdk.String("nam"),
-                PaymentMethods: gosdk.String("officia"),
-                ReturnURL: gosdk.String("occaecati"),
-            },
+            OrderMeta: &shared.OrderMeta{},
             OrderNote: gosdk.String("Test order"),
             OrderSplits: []shared.VendorSplit{
-                shared.VendorSplit{
-                    Amount: gosdk.Float64(1433.53),
-                    Percentage: gosdk.Float64(5373.73),
-                    VendorID: gosdk.String("hic"),
-                },
+                shared.VendorSplit{},
             },
             OrderTags: map[string]string{
-                "optio": "totam",
+                "temporibus": "SUV",
             },
             Terminal: &shared.TerminalDetails{
-                TerminalID: "beatae",
-                TerminalPhoneNo: "commodi",
-                TerminalType: "molestiae",
+                TerminalID: "overriding",
+                TerminalPhoneNo: "Southeast Southwest but",
+                TerminalType: "Recycled",
             },
         },
-        XAPIVersion: gosdk.String("modi"),
-        XClientID: "qui",
-        XClientSecret: "impedit",
+        XClientID: "Orchestrator",
+        XClientSecret: "implement",
     })
     if err != nil {
         log.Fatal(err)
@@ -115,11 +101,14 @@ func main() {
     res, err := s.Orders.OrderPay(ctx, operations.OrderPayRequest{
         OrderPayRequest: &shared.OrderPayRequest{
             OfferID: gosdk.String("faa6cc05-d1e2-401c-b0cf-0c9db3ff0f0b"),
-            PaymentMethod: shared.OrderPayRequestPaymentMethod{},
+            PaymentMethod: shared.CreateOrderPayRequestPaymentMethodCardlessEMIPaymentMethod(
+                    shared.CardlessEMIPaymentMethod{
+                        CardlessEmi: shared.CardlessEMI{},
+                    },
+            ),
             PaymentSessionID: "session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn",
-            SaveInstrument: gosdk.Bool(false),
         },
-        XAPIVersion: "cum",
+        XAPIVersion: "volt",
     })
     if err != nil {
         log.Fatal(err)

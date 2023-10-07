@@ -3,26 +3,40 @@
 package shared
 
 import (
-	"github.com/speakeasy-sdks/go-sdk/pkg/types"
-	"github.com/speakeasy-sdks/go-sdk/pkg/utils"
+	"encoding/json"
+	"fmt"
 )
+
+// RateLimitErrorType - rate_limit_error
+type RateLimitErrorType string
+
+const (
+	RateLimitErrorTypeRateLimitError RateLimitErrorType = "rate_limit_error"
+)
+
+func (e RateLimitErrorType) ToPointer() *RateLimitErrorType {
+	return &e
+}
+
+func (e *RateLimitErrorType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "rate_limit_error":
+		*e = RateLimitErrorType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for RateLimitErrorType: %v", v)
+	}
+}
 
 type RateLimitError struct {
 	Code    *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
 	// rate_limit_error
-	type_ *string `const:"rate_limit_error" json:"type,omitempty"`
-}
-
-func (r RateLimitError) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(r, "", false)
-}
-
-func (r *RateLimitError) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
-		return err
-	}
-	return nil
+	Type *RateLimitErrorType `json:"type,omitempty"`
 }
 
 func (o *RateLimitError) GetCode() *string {
@@ -39,6 +53,9 @@ func (o *RateLimitError) GetMessage() *string {
 	return o.Message
 }
 
-func (o *RateLimitError) GetType() *string {
-	return types.String("rate_limit_error")
+func (o *RateLimitError) GetType() *RateLimitErrorType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

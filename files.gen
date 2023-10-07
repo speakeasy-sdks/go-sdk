@@ -18,6 +18,7 @@ pkg/utils/requestbody.go
 pkg/utils/retries.go
 pkg/utils/security.go
 pkg/utils/utils.go
+tests/helpers.go
 pkg/models/operations/createorder.go
 pkg/models/operations/orderpay.go
 pkg/models/shared/ratelimiterror.go
@@ -64,6 +65,7 @@ docs/models/operations/createorderrequest.md
 docs/models/operations/createorderresponse.md
 docs/models/operations/orderpayrequest.md
 docs/models/operations/orderpayresponse.md
+docs/models/shared/ratelimiterrortype.md
 docs/models/shared/ratelimiterror.md
 docs/models/shared/ordersentity.md
 docs/models/shared/settlementurlobject.md
@@ -73,7 +75,9 @@ docs/models/shared/ordermeta.md
 docs/models/shared/customerdetails.md
 docs/models/shared/errorresponsetype.md
 docs/models/shared/errorresponse.md
+docs/models/shared/authenticationerrortype.md
 docs/models/shared/authenticationerror.md
+docs/models/shared/apierrortype.md
 docs/models/shared/apierror.md
 docs/models/shared/createorderbackendrequest.md
 docs/models/shared/terminaldetails.md

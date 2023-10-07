@@ -11,7 +11,6 @@ import(
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
 	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
-	"net/http"
 )
 
 func main() {
@@ -21,42 +20,28 @@ func main() {
     res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
         CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
             CustomerDetails: shared.CustomerDetails{
-                CustomerBankAccountNumber: gosdk.String("corrupti"),
-                CustomerBankCode: gosdk.String("provident"),
-                CustomerBankIfsc: gosdk.String("distinctio"),
-                CustomerEmail: gosdk.String("quibusdam"),
-                CustomerID: "unde",
-                CustomerPhone: "nulla",
+                CustomerID: "North double",
+                CustomerPhone: "spherical woman burdensome",
             },
             OrderAmount: 10.15,
             OrderCurrency: "INR",
             OrderExpiryTime: gosdk.String("2021-07-29T00:00:00Z"),
-            OrderID: gosdk.String("corrupti"),
-            OrderMeta: &shared.OrderMeta{
-                NotifyURL: gosdk.String("illum"),
-                PaymentMethods: gosdk.String("vel"),
-                ReturnURL: gosdk.String("error"),
-            },
+            OrderMeta: &shared.OrderMeta{},
             OrderNote: gosdk.String("Test order"),
             OrderSplits: []shared.VendorSplit{
-                shared.VendorSplit{
-                    Amount: gosdk.Float64(6458.94),
-                    Percentage: gosdk.Float64(3843.82),
-                    VendorID: gosdk.String("iure"),
-                },
+                shared.VendorSplit{},
             },
             OrderTags: map[string]string{
-                "magnam": "debitis",
+                "temporibus": "SUV",
             },
             Terminal: &shared.TerminalDetails{
-                TerminalID: "ipsa",
-                TerminalPhoneNo: "delectus",
-                TerminalType: "tempora",
+                TerminalID: "overriding",
+                TerminalPhoneNo: "Southeast Southwest but",
+                TerminalType: "Recycled",
             },
         },
-        XAPIVersion: gosdk.String("suscipit"),
-        XClientID: "molestiae",
-        XClientSecret: "minus",
+        XClientID: "Orchestrator",
+        XClientSecret: "implement",
     })
     if err != nil {
         log.Fatal(err)
