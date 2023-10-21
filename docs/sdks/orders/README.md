@@ -31,8 +31,8 @@ func main() {
     res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
         CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
             CustomerDetails: shared.CustomerDetails{
-                CustomerID: "Solutions",
-                CustomerPhone: "Pizza",
+                CustomerID: "string",
+                CustomerPhone: "string",
             },
             OrderAmount: 10.15,
             OrderCurrency: "INR",
@@ -43,16 +43,16 @@ func main() {
                 shared.VendorSplit{},
             },
             OrderTags: map[string]string{
-                "Salad": "spherical",
+                "key": "string",
             },
             Terminal: &shared.TerminalDetails{
-                TerminalID: "woman",
-                TerminalPhoneNo: "burdensome",
-                TerminalType: "temporibus",
+                TerminalID: "string",
+                TerminalPhoneNo: "string",
+                TerminalType: "string",
             },
         },
-        XClientID: "SUV",
-        XClientSecret: "Doyle",
+        XClientID: "string",
+        XClientSecret: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -108,7 +108,7 @@ func main() {
             ),
             PaymentSessionID: "session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn",
         },
-        XAPIVersion: "Cheese",
+        XAPIVersion: "string",
     })
     if err != nil {
         log.Fatal(err)
