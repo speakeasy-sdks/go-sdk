@@ -15,10 +15,10 @@ package main
 
 import (
 	"context"
-	gosdk "github.com/speakeasy-sdks/go-sdk"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/callbacks"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
 	"log"
 )
 
@@ -68,7 +68,7 @@ func main() {
 ## Available Resources and Operations
 
 
-### [Orders](docs/sdks/orders/README.md)
+### [.Orders](docs/sdks/orders/README.md)
 
 * [CreateOrder](docs/sdks/orders/README.md#createorder) - Create Order
 * [OrderPay](docs/sdks/orders/README.md#orderpay) - Order Pay
@@ -106,6 +106,74 @@ Here's an example of one such pagination call:
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
 
+## Example
+
+```go
+package main
+
+import (
+	"context"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/callbacks"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
+	"log"
+)
+
+func main() {
+	s := gosdk.New()
+
+	ctx := context.Background()
+	res, err := s.Orders.CreateOrder(ctx, operations.CreateOrderRequest{
+		CreateOrderBackendRequest: &shared.CreateOrderBackendRequest{
+			CustomerDetails: shared.CustomerDetails{
+				CustomerID:    "string",
+				CustomerPhone: "string",
+			},
+			OrderAmount:     10.15,
+			OrderCurrency:   "INR",
+			OrderExpiryTime: gosdk.String("2021-07-29T00:00:00Z"),
+			OrderMeta:       &shared.OrderMeta{},
+			OrderNote:       gosdk.String("Test order"),
+			OrderSplits: []shared.VendorSplit{
+				shared.VendorSplit{},
+			},
+			OrderTags: map[string]string{
+				"key": "string",
+			},
+			Terminal: &shared.TerminalDetails{
+				TerminalID:      "string",
+				TerminalPhoneNo: "string",
+				TerminalType:    "string",
+			},
+		},
+		XClientID:     "string",
+		XClientSecret: "string",
+	})
+	if err != nil {
+
+		var e *sdkerrors.AuthenticationError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *sdkerrors.RateLimitError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *sdkerrors.APIError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+	}
+}
+
+```
 <!-- End Error Handling -->
 
 
@@ -124,16 +192,15 @@ You can override the default server globally using the `WithServerIndex` option 
 
 For example:
 
-
 ```go
 package main
 
 import (
 	"context"
-	gosdk "github.com/speakeasy-sdks/go-sdk"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/callbacks"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
 	"log"
 )
 
@@ -185,16 +252,15 @@ func main() {
 
 The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
 
-
 ```go
 package main
 
 import (
 	"context"
-	gosdk "github.com/speakeasy-sdks/go-sdk"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/callbacks"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
 	"log"
 )
 

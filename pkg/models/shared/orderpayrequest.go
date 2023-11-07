@@ -4,22 +4,22 @@ package shared
 
 import (
 	"errors"
-	"github.com/speakeasy-sdks/go-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/utils"
 )
 
-type OrderPayRequestPaymentMethodType string
+type PaymentMethodType string
 
 const (
-	OrderPayRequestPaymentMethodTypeCardPaymentMethod        OrderPayRequestPaymentMethodType = "CardPaymentMethod"
-	OrderPayRequestPaymentMethodTypeUPIPaymentMethod         OrderPayRequestPaymentMethodType = "UPIPaymentMethod"
-	OrderPayRequestPaymentMethodTypeNetBankingPaymentMethod  OrderPayRequestPaymentMethodType = "NetBankingPaymentMethod"
-	OrderPayRequestPaymentMethodTypeAppPaymentMethod         OrderPayRequestPaymentMethodType = "AppPaymentMethod"
-	OrderPayRequestPaymentMethodTypeCardEMIPaymentMethod     OrderPayRequestPaymentMethodType = "CardEMIPaymentMethod"
-	OrderPayRequestPaymentMethodTypeCardlessEMIPaymentMethod OrderPayRequestPaymentMethodType = "CardlessEMIPaymentMethod"
-	OrderPayRequestPaymentMethodTypePaylaterPaymentMethod    OrderPayRequestPaymentMethodType = "PaylaterPaymentMethod"
+	PaymentMethodTypeCardPaymentMethod        PaymentMethodType = "CardPaymentMethod"
+	PaymentMethodTypeUPIPaymentMethod         PaymentMethodType = "UPIPaymentMethod"
+	PaymentMethodTypeNetBankingPaymentMethod  PaymentMethodType = "NetBankingPaymentMethod"
+	PaymentMethodTypeAppPaymentMethod         PaymentMethodType = "AppPaymentMethod"
+	PaymentMethodTypeCardEMIPaymentMethod     PaymentMethodType = "CardEMIPaymentMethod"
+	PaymentMethodTypeCardlessEMIPaymentMethod PaymentMethodType = "CardlessEMIPaymentMethod"
+	PaymentMethodTypePaylaterPaymentMethod    PaymentMethodType = "PaylaterPaymentMethod"
 )
 
-type OrderPayRequestPaymentMethod struct {
+type PaymentMethod struct {
 	CardPaymentMethod        *CardPaymentMethod
 	UPIPaymentMethod         *UPIPaymentMethod
 	NetBankingPaymentMethod  *NetBankingPaymentMethod
@@ -28,127 +28,127 @@ type OrderPayRequestPaymentMethod struct {
 	CardlessEMIPaymentMethod *CardlessEMIPaymentMethod
 	PaylaterPaymentMethod    *PaylaterPaymentMethod
 
-	Type OrderPayRequestPaymentMethodType
+	Type PaymentMethodType
 }
 
-func CreateOrderPayRequestPaymentMethodCardPaymentMethod(cardPaymentMethod CardPaymentMethod) OrderPayRequestPaymentMethod {
-	typ := OrderPayRequestPaymentMethodTypeCardPaymentMethod
+func CreatePaymentMethodCardPaymentMethod(cardPaymentMethod CardPaymentMethod) PaymentMethod {
+	typ := PaymentMethodTypeCardPaymentMethod
 
-	return OrderPayRequestPaymentMethod{
+	return PaymentMethod{
 		CardPaymentMethod: &cardPaymentMethod,
 		Type:              typ,
 	}
 }
 
-func CreateOrderPayRequestPaymentMethodUPIPaymentMethod(upiPaymentMethod UPIPaymentMethod) OrderPayRequestPaymentMethod {
-	typ := OrderPayRequestPaymentMethodTypeUPIPaymentMethod
+func CreatePaymentMethodUPIPaymentMethod(upiPaymentMethod UPIPaymentMethod) PaymentMethod {
+	typ := PaymentMethodTypeUPIPaymentMethod
 
-	return OrderPayRequestPaymentMethod{
+	return PaymentMethod{
 		UPIPaymentMethod: &upiPaymentMethod,
 		Type:             typ,
 	}
 }
 
-func CreateOrderPayRequestPaymentMethodNetBankingPaymentMethod(netBankingPaymentMethod NetBankingPaymentMethod) OrderPayRequestPaymentMethod {
-	typ := OrderPayRequestPaymentMethodTypeNetBankingPaymentMethod
+func CreatePaymentMethodNetBankingPaymentMethod(netBankingPaymentMethod NetBankingPaymentMethod) PaymentMethod {
+	typ := PaymentMethodTypeNetBankingPaymentMethod
 
-	return OrderPayRequestPaymentMethod{
+	return PaymentMethod{
 		NetBankingPaymentMethod: &netBankingPaymentMethod,
 		Type:                    typ,
 	}
 }
 
-func CreateOrderPayRequestPaymentMethodAppPaymentMethod(appPaymentMethod AppPaymentMethod) OrderPayRequestPaymentMethod {
-	typ := OrderPayRequestPaymentMethodTypeAppPaymentMethod
+func CreatePaymentMethodAppPaymentMethod(appPaymentMethod AppPaymentMethod) PaymentMethod {
+	typ := PaymentMethodTypeAppPaymentMethod
 
-	return OrderPayRequestPaymentMethod{
+	return PaymentMethod{
 		AppPaymentMethod: &appPaymentMethod,
 		Type:             typ,
 	}
 }
 
-func CreateOrderPayRequestPaymentMethodCardEMIPaymentMethod(cardEMIPaymentMethod CardEMIPaymentMethod) OrderPayRequestPaymentMethod {
-	typ := OrderPayRequestPaymentMethodTypeCardEMIPaymentMethod
+func CreatePaymentMethodCardEMIPaymentMethod(cardEMIPaymentMethod CardEMIPaymentMethod) PaymentMethod {
+	typ := PaymentMethodTypeCardEMIPaymentMethod
 
-	return OrderPayRequestPaymentMethod{
+	return PaymentMethod{
 		CardEMIPaymentMethod: &cardEMIPaymentMethod,
 		Type:                 typ,
 	}
 }
 
-func CreateOrderPayRequestPaymentMethodCardlessEMIPaymentMethod(cardlessEMIPaymentMethod CardlessEMIPaymentMethod) OrderPayRequestPaymentMethod {
-	typ := OrderPayRequestPaymentMethodTypeCardlessEMIPaymentMethod
+func CreatePaymentMethodCardlessEMIPaymentMethod(cardlessEMIPaymentMethod CardlessEMIPaymentMethod) PaymentMethod {
+	typ := PaymentMethodTypeCardlessEMIPaymentMethod
 
-	return OrderPayRequestPaymentMethod{
+	return PaymentMethod{
 		CardlessEMIPaymentMethod: &cardlessEMIPaymentMethod,
 		Type:                     typ,
 	}
 }
 
-func CreateOrderPayRequestPaymentMethodPaylaterPaymentMethod(paylaterPaymentMethod PaylaterPaymentMethod) OrderPayRequestPaymentMethod {
-	typ := OrderPayRequestPaymentMethodTypePaylaterPaymentMethod
+func CreatePaymentMethodPaylaterPaymentMethod(paylaterPaymentMethod PaylaterPaymentMethod) PaymentMethod {
+	typ := PaymentMethodTypePaylaterPaymentMethod
 
-	return OrderPayRequestPaymentMethod{
+	return PaymentMethod{
 		PaylaterPaymentMethod: &paylaterPaymentMethod,
 		Type:                  typ,
 	}
 }
 
-func (u *OrderPayRequestPaymentMethod) UnmarshalJSON(data []byte) error {
+func (u *PaymentMethod) UnmarshalJSON(data []byte) error {
 
 	cardPaymentMethod := CardPaymentMethod{}
 	if err := utils.UnmarshalJSON(data, &cardPaymentMethod, "", true, true); err == nil {
 		u.CardPaymentMethod = &cardPaymentMethod
-		u.Type = OrderPayRequestPaymentMethodTypeCardPaymentMethod
+		u.Type = PaymentMethodTypeCardPaymentMethod
 		return nil
 	}
 
 	upiPaymentMethod := UPIPaymentMethod{}
 	if err := utils.UnmarshalJSON(data, &upiPaymentMethod, "", true, true); err == nil {
 		u.UPIPaymentMethod = &upiPaymentMethod
-		u.Type = OrderPayRequestPaymentMethodTypeUPIPaymentMethod
+		u.Type = PaymentMethodTypeUPIPaymentMethod
 		return nil
 	}
 
 	netBankingPaymentMethod := NetBankingPaymentMethod{}
 	if err := utils.UnmarshalJSON(data, &netBankingPaymentMethod, "", true, true); err == nil {
 		u.NetBankingPaymentMethod = &netBankingPaymentMethod
-		u.Type = OrderPayRequestPaymentMethodTypeNetBankingPaymentMethod
+		u.Type = PaymentMethodTypeNetBankingPaymentMethod
 		return nil
 	}
 
 	appPaymentMethod := AppPaymentMethod{}
 	if err := utils.UnmarshalJSON(data, &appPaymentMethod, "", true, true); err == nil {
 		u.AppPaymentMethod = &appPaymentMethod
-		u.Type = OrderPayRequestPaymentMethodTypeAppPaymentMethod
+		u.Type = PaymentMethodTypeAppPaymentMethod
 		return nil
 	}
 
 	cardEMIPaymentMethod := CardEMIPaymentMethod{}
 	if err := utils.UnmarshalJSON(data, &cardEMIPaymentMethod, "", true, true); err == nil {
 		u.CardEMIPaymentMethod = &cardEMIPaymentMethod
-		u.Type = OrderPayRequestPaymentMethodTypeCardEMIPaymentMethod
+		u.Type = PaymentMethodTypeCardEMIPaymentMethod
 		return nil
 	}
 
 	cardlessEMIPaymentMethod := CardlessEMIPaymentMethod{}
 	if err := utils.UnmarshalJSON(data, &cardlessEMIPaymentMethod, "", true, true); err == nil {
 		u.CardlessEMIPaymentMethod = &cardlessEMIPaymentMethod
-		u.Type = OrderPayRequestPaymentMethodTypeCardlessEMIPaymentMethod
+		u.Type = PaymentMethodTypeCardlessEMIPaymentMethod
 		return nil
 	}
 
 	paylaterPaymentMethod := PaylaterPaymentMethod{}
 	if err := utils.UnmarshalJSON(data, &paylaterPaymentMethod, "", true, true); err == nil {
 		u.PaylaterPaymentMethod = &paylaterPaymentMethod
-		u.Type = OrderPayRequestPaymentMethodTypePaylaterPaymentMethod
+		u.Type = PaymentMethodTypePaylaterPaymentMethod
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u OrderPayRequestPaymentMethod) MarshalJSON() ([]byte, error) {
+func (u PaymentMethod) MarshalJSON() ([]byte, error) {
 	if u.CardPaymentMethod != nil {
 		return utils.MarshalJSON(u.CardPaymentMethod, "", true)
 	}
@@ -182,10 +182,10 @@ func (u OrderPayRequestPaymentMethod) MarshalJSON() ([]byte, error) {
 
 type OrderPayRequest struct {
 	// This is required if any offers needs to be applied to the order.
-	OfferID          *string                      `json:"offer_id,omitempty"`
-	PaymentMethod    OrderPayRequestPaymentMethod `json:"payment_method"`
-	PaymentSessionID string                       `json:"payment_session_id"`
-	SaveInstrument   *bool                        `json:"save_instrument,omitempty"`
+	OfferID          *string       `json:"offer_id,omitempty"`
+	PaymentMethod    PaymentMethod `json:"payment_method"`
+	PaymentSessionID string        `json:"payment_session_id"`
+	SaveInstrument   *bool         `json:"save_instrument,omitempty"`
 }
 
 func (o *OrderPayRequest) GetOfferID() *string {
@@ -195,9 +195,9 @@ func (o *OrderPayRequest) GetOfferID() *string {
 	return o.OfferID
 }
 
-func (o *OrderPayRequest) GetPaymentMethod() OrderPayRequestPaymentMethod {
+func (o *OrderPayRequest) GetPaymentMethod() PaymentMethod {
 	if o == nil {
-		return OrderPayRequestPaymentMethod{}
+		return PaymentMethod{}
 	}
 	return o.PaymentMethod
 }

@@ -7,20 +7,20 @@ import (
 	"fmt"
 )
 
-// OrderPayResponseAction - One of ["link", "custom", "form"]
-type OrderPayResponseAction string
+// Action - One of ["link", "custom", "form"]
+type Action string
 
 const (
-	OrderPayResponseActionLink   OrderPayResponseAction = "link"
-	OrderPayResponseActionCustom OrderPayResponseAction = "custom"
-	OrderPayResponseActionForm   OrderPayResponseAction = "form"
+	ActionLink   Action = "link"
+	ActionCustom Action = "custom"
+	ActionForm   Action = "form"
 )
 
-func (e OrderPayResponseAction) ToPointer() *OrderPayResponseAction {
+func (e Action) ToPointer() *Action {
 	return &e
 }
 
-func (e *OrderPayResponseAction) UnmarshalJSON(data []byte) error {
+func (e *Action) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -31,10 +31,10 @@ func (e *OrderPayResponseAction) UnmarshalJSON(data []byte) error {
 	case "custom":
 		fallthrough
 	case "form":
-		*e = OrderPayResponseAction(v)
+		*e = Action(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for OrderPayResponseAction: %v", v)
+		return fmt.Errorf("invalid value for Action: %v", v)
 	}
 }
 
@@ -111,7 +111,7 @@ func (e *OrderPayResponsePaymentMethod) UnmarshalJSON(data []byte) error {
 
 type OrderPayResponse struct {
 	// One of ["link", "custom", "form"]
-	Action *OrderPayResponseAction `json:"action,omitempty"`
+	Action *Action `json:"action,omitempty"`
 	// Payment identifier created by Cashfree
 	CfPaymentID *int64 `json:"cf_payment_id,omitempty"`
 	// One of ["link", "collect", "qrcode"]. In an older version we used to support different channels like 'gpay', 'phonepe' etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as 'link' and provider as 'gpay'
@@ -121,7 +121,7 @@ type OrderPayResponse struct {
 	PaymentMethod *OrderPayResponsePaymentMethod `json:"payment_method,omitempty"`
 }
 
-func (o *OrderPayResponse) GetAction() *OrderPayResponseAction {
+func (o *OrderPayResponse) GetAction() *Action {
 	if o == nil {
 		return nil
 	}

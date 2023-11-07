@@ -3,7 +3,7 @@
 package operations
 
 import (
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
 	"net/http"
 )
 
@@ -27,8 +27,6 @@ func (o *OrderPayRequest) GetXAPIVersion() string {
 }
 
 type OrderPayResponse struct {
-	// API related Errors
-	APIError *shared.APIError
 	// HTTP response content type for this operation
 	ContentType string
 	// Any bad or invalid request will lead to following error object
@@ -36,19 +34,10 @@ type OrderPayResponse struct {
 	Headers       map[string][]string
 	// OK
 	OrderPayResponse *shared.OrderPayResponse
-	// Either ports issue or too many requests
-	RateLimitError *shared.RateLimitError
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *OrderPayResponse) GetAPIError() *shared.APIError {
-	if o == nil {
-		return nil
-	}
-	return o.APIError
 }
 
 func (o *OrderPayResponse) GetContentType() string {
@@ -77,13 +66,6 @@ func (o *OrderPayResponse) GetOrderPayResponse() *shared.OrderPayResponse {
 		return nil
 	}
 	return o.OrderPayResponse
-}
-
-func (o *OrderPayResponse) GetRateLimitError() *shared.RateLimitError {
-	if o == nil {
-		return nil
-	}
-	return o.RateLimitError
 }
 
 func (o *OrderPayResponse) GetStatusCode() int {

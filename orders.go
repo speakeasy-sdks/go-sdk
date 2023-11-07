@@ -6,28 +6,28 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/sdkerrors"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/go-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/sdkerrors"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/utils"
 	"io"
 	"net/http"
 	"strings"
 )
 
-type orders struct {
+type Orders struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newOrders(sdkConfig sdkConfiguration) *orders {
-	return &orders{
+func newOrders(sdkConfig sdkConfiguration) *Orders {
+	return &Orders{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // CreateOrder - Create Order
 // Use this API to create orders with Cashfree from your backend and get the payment link. To use this API S2S flag needs to be enabled from the backend. In case you want to use the cards payment option the PCI DSS flag is required, for more information email us at "care@cashfree.com".
-func (s *orders) CreateOrder(ctx context.Context, request operations.CreateOrderRequest) (*operations.CreateOrderResponse, error) {
+func (s *Orders) CreateOrder(ctx context.Context, request operations.CreateOrderRequest) (*operations.CreateOrderResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/orders"
 
@@ -91,12 +91,11 @@ func (s *orders) CreateOrder(ctx context.Context, request operations.CreateOrder
 
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out shared.AuthenticationError
+			var out sdkerrors.AuthenticationError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
-
-			res.AuthenticationError = &out
+			return nil, &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -105,26 +104,28 @@ func (s *orders) CreateOrder(ctx context.Context, request operations.CreateOrder
 
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out shared.RateLimitError
+			var out sdkerrors.RateLimitError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
-
-			res.RateLimitError = &out
+			return nil, &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	case httpRes.StatusCode == 500:
 		res.Headers = httpRes.Header
 
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out shared.APIError
+			var out sdkerrors.APIError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
-
-			res.APIError = &out
+			return nil, &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
@@ -149,7 +150,7 @@ func (s *orders) CreateOrder(ctx context.Context, request operations.CreateOrder
 
 // OrderPay - Order Pay
 // Use this API when you have already created the orders and want Cashfree to process the payment. To use this API S2S flag needs to be enabled from the backend. In case you want to use the cards payment option the PCI DSS flag is required, for more information send an email to "care@cashfree.com".
-func (s *orders) OrderPay(ctx context.Context, request operations.OrderPayRequest) (*operations.OrderPayResponse, error) {
+func (s *Orders) OrderPay(ctx context.Context, request operations.OrderPayRequest) (*operations.OrderPayResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/orders/sessions"
 
@@ -213,26 +214,28 @@ func (s *orders) OrderPay(ctx context.Context, request operations.OrderPayReques
 
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out shared.RateLimitError
+			var out sdkerrors.RateLimitError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
-
-			res.RateLimitError = &out
+			return nil, &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	case httpRes.StatusCode == 500:
 		res.Headers = httpRes.Header
 
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out shared.APIError
+			var out sdkerrors.APIError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
-
-			res.APIError = &out
+			return nil, &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}

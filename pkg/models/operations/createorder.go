@@ -3,8 +3,8 @@
 package operations
 
 import (
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/go-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/utils"
 	"net/http"
 )
 
@@ -55,10 +55,6 @@ func (o *CreateOrderRequest) GetXClientSecret() string {
 }
 
 type CreateOrderResponse struct {
-	// API related Errors
-	APIError *shared.APIError
-	// Authentication Error
-	AuthenticationError *shared.AuthenticationError
 	// HTTP response content type for this operation
 	ContentType string
 	// Any bad or invalid request will lead to following error object
@@ -66,26 +62,10 @@ type CreateOrderResponse struct {
 	Headers       map[string][]string
 	// OK
 	OrdersEntity *shared.OrdersEntity
-	// Rate Limit Error
-	RateLimitError *shared.RateLimitError
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *CreateOrderResponse) GetAPIError() *shared.APIError {
-	if o == nil {
-		return nil
-	}
-	return o.APIError
-}
-
-func (o *CreateOrderResponse) GetAuthenticationError() *shared.AuthenticationError {
-	if o == nil {
-		return nil
-	}
-	return o.AuthenticationError
 }
 
 func (o *CreateOrderResponse) GetContentType() string {
@@ -114,13 +94,6 @@ func (o *CreateOrderResponse) GetOrdersEntity() *shared.OrdersEntity {
 		return nil
 	}
 	return o.OrdersEntity
-}
-
-func (o *CreateOrderResponse) GetRateLimitError() *shared.RateLimitError {
-	if o == nil {
-		return nil
-	}
-	return o.RateLimitError
 }
 
 func (o *CreateOrderResponse) GetStatusCode() int {

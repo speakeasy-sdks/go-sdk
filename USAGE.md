@@ -6,10 +6,10 @@ package main
 
 import (
 	"context"
-	gosdk "github.com/speakeasy-sdks/go-sdk"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/callbacks"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
 	"log"
 )
 

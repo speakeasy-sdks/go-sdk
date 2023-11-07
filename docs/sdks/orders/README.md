@@ -1,5 +1,5 @@
 # Orders
-(*Orders*)
+(*.Orders*)
 
 ### Available Operations
 
@@ -18,10 +18,10 @@ package main
 import(
 	"context"
 	"log"
-	gosdk "github.com/speakeasy-sdks/go-sdk"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/callbacks"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/callbacks"
 )
 
 func main() {
@@ -89,9 +89,9 @@ package main
 import(
 	"context"
 	"log"
-	gosdk "github.com/speakeasy-sdks/go-sdk"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/pkg/models/shared"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
 )
 
 func main() {
@@ -101,7 +101,7 @@ func main() {
     res, err := s.Orders.OrderPay(ctx, operations.OrderPayRequest{
         OrderPayRequest: &shared.OrderPayRequest{
             OfferID: gosdk.String("faa6cc05-d1e2-401c-b0cf-0c9db3ff0f0b"),
-            PaymentMethod: shared.CreateOrderPayRequestPaymentMethodCardlessEMIPaymentMethod(
+            PaymentMethod: shared.CreatePaymentMethodCardlessEMIPaymentMethod(
                     shared.CardlessEMIPaymentMethod{
                         CardlessEmi: shared.CardlessEMI{},
                     },

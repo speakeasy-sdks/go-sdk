@@ -4,7 +4,7 @@ package gosdk
 
 import (
 	"fmt"
-	"github.com/speakeasy-sdks/go-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/go-sdk/v2/pkg/utils"
 	"net/http"
 	"time"
 )
@@ -63,7 +63,7 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 }
 
 type Pg struct {
-	Orders *orders
+	Orders *Orders
 
 	sdkConfiguration sdkConfiguration
 }
@@ -118,9 +118,9 @@ func New(opts ...SDKOption) *Pg {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "2022-09-01",
-			SDKVersion:        "1.6.1",
-			GenVersion:        "2.173.0",
-			UserAgent:         "speakeasy-sdk/go 1.6.1 2.173.0 2022-09-01 github.com/speakeasy-sdks/go-sdk",
+			SDKVersion:        "2.0.0",
+			GenVersion:        "2.181.1",
+			UserAgent:         "speakeasy-sdk/go 2.0.0 2.181.1 2022-09-01 github.com/speakeasy-sdks/go-sdk",
 		},
 	}
 	for _, opt := range opts {
