@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: af06384e525f01026fc7dc59efb1b4ca
   docVersion: "2022-09-01"
-  speakeasyVersion: 1.114.1
-  generationVersion: 2.181.1
+  speakeasyVersion: 1.116.0
+  generationVersion: 2.185.0
 generation:
   comments: {}
   sdkClassName: PG
@@ -11,11 +11,11 @@ generation:
 features:
   go:
     constsAndDefaults: 0.1.1
-    core: 3.1.0
+    core: 3.1.2
     globalServerURLs: 2.82.0
     unions: 2.85.0
 go:
-  version: 2.0.0
+  version: 2.0.1
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
@@ -26,8 +26,10 @@ go:
       operations: pkg/models/operations
       shared: pkg/models/shared
       webhooks: pkg/models/webhooks
+  inputModelSuffix: input
   installationURL: https://github.com/speakeasy-sdks/go-sdk
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: github.com/speakeasy-sdks/go-sdk
   published: true
   repoSubDirectory: .
