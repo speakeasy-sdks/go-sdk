@@ -1,13 +1,10 @@
 <!-- Start SDK Example Usage -->
-
-
 ```go
 package main
 
 import (
 	"context"
 	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
-	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/callbacks"
 	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
 	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
 	"log"

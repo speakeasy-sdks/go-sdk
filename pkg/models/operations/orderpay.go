@@ -56,7 +56,7 @@ func (o *OrderPayResponse) GetErrorResponse() *shared.ErrorResponse {
 
 func (o *OrderPayResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }
