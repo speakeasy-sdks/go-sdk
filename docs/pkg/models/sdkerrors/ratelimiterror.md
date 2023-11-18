@@ -1,5 +1,7 @@
 # RateLimitError
 
+Either ports issue or too many requests
+
 
 ## Fields
 

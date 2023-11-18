@@ -32,6 +32,7 @@ func (e *Type) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// APIError - API related Errors
 type APIError struct {
 	Code    *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`

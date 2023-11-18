@@ -71,7 +71,7 @@ docs/pkg/models/shared/refundurlobject.md
 docs/pkg/models/shared/paymenturlobject.md
 docs/pkg/models/shared/ordermeta.md
 docs/pkg/models/shared/customerdetails.md
-docs/pkg/models/shared/errorresponsetype.md
+docs/pkg/models/shared/type.md
 docs/pkg/models/shared/errorresponse.md
 docs/pkg/models/shared/createorderbackendrequest.md
 docs/pkg/models/shared/terminaldetails.md

@@ -1,5 +1,7 @@
 # APIError
 
+API related Errors
+
 
 ## Fields
 

@@ -7,22 +7,22 @@ import (
 	"fmt"
 )
 
-// ErrorResponseType - One of ["invalid_request_error", "authentication_error", "rate_limit_error", "validation_error", "api_error"]
-type ErrorResponseType string
+// Type - One of ["invalid_request_error", "authentication_error", "rate_limit_error", "validation_error", "api_error"]
+type Type string
 
 const (
-	ErrorResponseTypeInvalidRequestError ErrorResponseType = "invalid_request_error"
-	ErrorResponseTypeAuthenticationError ErrorResponseType = "authentication_error"
-	ErrorResponseTypeRateLimitError      ErrorResponseType = "rate_limit_error"
-	ErrorResponseTypeValidationError     ErrorResponseType = "validation_error"
-	ErrorResponseTypeAPIError            ErrorResponseType = "api_error"
+	TypeInvalidRequestError Type = "invalid_request_error"
+	TypeAuthenticationError Type = "authentication_error"
+	TypeRateLimitError      Type = "rate_limit_error"
+	TypeValidationError     Type = "validation_error"
+	TypeAPIError            Type = "api_error"
 )
 
-func (e ErrorResponseType) ToPointer() *ErrorResponseType {
+func (e Type) ToPointer() *Type {
 	return &e
 }
 
-func (e *ErrorResponseType) UnmarshalJSON(data []byte) error {
+func (e *Type) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -37,10 +37,10 @@ func (e *ErrorResponseType) UnmarshalJSON(data []byte) error {
 	case "validation_error":
 		fallthrough
 	case "api_error":
-		*e = ErrorResponseType(v)
+		*e = Type(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ErrorResponseType: %v", v)
+		return fmt.Errorf("invalid value for Type: %v", v)
 	}
 }
 
@@ -48,7 +48,7 @@ type ErrorResponse struct {
 	Code    *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
 	// One of ["invalid_request_error", "authentication_error", "rate_limit_error", "validation_error", "api_error"]
-	Type *ErrorResponseType `json:"type,omitempty"`
+	Type *Type `json:"type,omitempty"`
 }
 
 func (o *ErrorResponse) GetCode() *string {
@@ -65,7 +65,7 @@ func (o *ErrorResponse) GetMessage() *string {
 	return o.Message
 }
 
-func (o *ErrorResponse) GetType() *ErrorResponseType {
+func (o *ErrorResponse) GetType() *Type {
 	if o == nil {
 		return nil
 	}

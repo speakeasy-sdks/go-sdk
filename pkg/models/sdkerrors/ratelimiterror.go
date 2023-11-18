@@ -32,6 +32,7 @@ func (e *SchemasRateLimitErrorType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// RateLimitError - Either ports issue or too many requests
 type RateLimitError struct {
 	Code    *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
