@@ -60,7 +60,6 @@ pkg/utils/utils.go
 /pkg/models/sdkerrors/ratelimiterror.go
 /pkg/models/sdkerrors/apierror.go
 /pkg/models/callbacks/createorder.go
-USAGE.md
 docs/pkg/models/operations/createorderrequest.md
 docs/pkg/models/operations/createorderresponse.md
 docs/pkg/models/operations/orderpayrequest.md
@@ -122,4 +121,5 @@ docs/pkg/models/sdkerrors/apierror.md
 docs/pkg/models/callbacks/createorderpaymentwebhookresponse.md
 docs/sdks/pg/README.md
 docs/sdks/orders/README.md
+USAGE.md
 .gitattributes
