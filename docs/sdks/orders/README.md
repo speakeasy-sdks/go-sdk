@@ -16,10 +16,10 @@ Use this API to create orders with Cashfree from your backend and get the paymen
 package main
 
 import(
-	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v3"
 	"context"
-	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
-	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v3/pkg/models/shared"
+	"github.com/speakeasy-sdks/go-sdk/v3/pkg/models/operations"
 	"log"
 )
 
@@ -91,10 +91,10 @@ Use this API when you have already created the orders and want Cashfree to proce
 package main
 
 import(
-	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v3"
 	"context"
-	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
-	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v3/pkg/models/shared"
+	"github.com/speakeasy-sdks/go-sdk/v3/pkg/models/operations"
 	"log"
 )
 

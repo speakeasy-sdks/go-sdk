@@ -4,9 +4,9 @@ package main
 
 import (
 	"context"
-	gosdk "github.com/speakeasy-sdks/go-sdk/v2"
-	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/operations"
-	"github.com/speakeasy-sdks/go-sdk/v2/pkg/models/shared"
+	gosdk "github.com/speakeasy-sdks/go-sdk/v3"
+	"github.com/speakeasy-sdks/go-sdk/v3/pkg/models/operations"
+	"github.com/speakeasy-sdks/go-sdk/v3/pkg/models/shared"
 	"log"
 )
 
