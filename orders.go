@@ -52,12 +52,12 @@ func (s *Orders) CreateOrder(ctx context.Context, request operations.CreateOrder
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.DefaultClient
-
 	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
+
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -80,7 +80,6 @@ func (s *Orders) CreateOrder(ctx context.Context, request operations.CreateOrder
 			return nil, err
 		}
 	}
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.CreateOrderResponse{
@@ -199,12 +198,12 @@ func (s *Orders) OrderPay(ctx context.Context, request operations.OrderPayReques
 
 	utils.PopulateHeaders(ctx, req, request)
 
-	client := s.sdkConfiguration.DefaultClient
-
 	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
+
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -227,7 +226,6 @@ func (s *Orders) OrderPay(ctx context.Context, request operations.OrderPayReques
 			return nil, err
 		}
 	}
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.OrderPayResponse{
