@@ -3,10 +3,10 @@ id: 29e612a4-426f-4e4e-a6b0-ae2d21780a5b
 management:
   docChecksum: af06384e525f01026fc7dc59efb1b4ca
   docVersion: "2022-09-01"
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 3.3.1
-  configChecksum: 772c7a3c696fa9b93d435372fa334e9b
+  speakeasyVersion: 1.227.0
+  generationVersion: 2.291.0
+  releaseVersion: 3.3.2
+  configChecksum: 7db6d2e04d0fc44e407d6fb361f6943f
   repoURL: https://github.com/speakeasy-sdks/go-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/go-sdk
@@ -15,7 +15,7 @@ features:
   go:
     callbacks: 1.0.0
     constsAndDefaults: 0.1.4
-    core: 3.4.4
+    core: 3.4.5
     globalServerURLs: 2.82.2
     responseFormat: 0.1.0
     unions: 2.85.4
